@@ -20,18 +20,9 @@ COPY . .
 RUN boot show --deps
 RUN boot build
 
-
-FROM docker:dind
+FROM openjdk:12-alpine
 
 WORKDIR /opt
-RUN apk add -u wget
-RUN wget "https://cdn.azul.com/zulu/bin/zulu12.3.11-ca-jdk12.0.2-linux_musl_x64.tar.gz"
-RUN tar -zxvf *.tar.gz
-RUN rm *.tar.gz
-RUN mv zulu* jdk
 COPY --from=builder /opt/target/bob-standalone.jar .
-COPY bob-entrypoint.sh /opt
-RUN chmod +x /opt/bob-entrypoint.sh
 
-
-ENTRYPOINT ["/opt/bob-entrypoint.sh"]
+CMD ["java", "-jar", "/opt/bob-standalone.jar"]
