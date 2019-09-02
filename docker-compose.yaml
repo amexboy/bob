@@ -46,13 +46,16 @@ services:
       - bob_net
   
   bob:
-    image: "bobcd/bob"
-    privileged: true
+    build: .
+    image: "bobcd/bob:openjdk-12-alpine"
+    privileged: false
     container_name: "bob"
     depends_on:
       - db
       - resource-git
       - artifact-local
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - BOB_DB_HOST=db
       - BOB_DB_PORT=5432
