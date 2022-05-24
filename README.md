@@ -31,6 +31,16 @@ Please start a [discussion](https://github.com/bob-cd/bob/discussions) on litera
 
 For a more Clojure specific discussion there we also have a Clojurians Slack [channel](https://clojurians.slack.com/messages/CPBAYJJF6).
 
+# Building Bob
+
+## Required tools
+
+* [Clojure](https://clojure.org/guides/install_clojure) Majority of Bob's code base is written in Clojure
+* [Babaska](https://github.com/babashka/babashka#installation) Used for orchastrating the mono-repo and the builds there in 
+* [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/getting-started/installation) are required to run tests and to run bob. 
+
+Look at our [Developers' Guide]() for more information on how to get started with developing Bob. 
+
 Happy Building!
 
 ## License
